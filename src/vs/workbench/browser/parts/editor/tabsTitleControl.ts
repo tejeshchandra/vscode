@@ -1051,12 +1051,9 @@ export class TabsTitleControl extends TitleControl {
 			tabContainer.classList.toggle(`sizing-${option}`, tabSizing === option);
 		});
 
-		if (options.showIcons && options.hasIcons) {
-			tabContainer.classList.add('has-icon');
-		} else {
-			tabContainer.classList.remove('has-icon');
-		}
+		tabContainer.classList.toggle('has-icon', options.showIcons && options.hasIcons);
 
+		tabContainer.classList.toggle('sticky', isTabSticky);
 		['normal', 'compact', 'shrink'].forEach(option => {
 			tabContainer.classList.toggle(`sticky-${option}`, isTabSticky && options.pinnedTabSizing === option);
 		});
